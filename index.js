@@ -17,16 +17,15 @@ document.addEventListener("DOMContentLoaded", function () {
 import { PDFDocument, rgb } from 'https://cdn.skypack.dev/pdf-lib'
 
 
-const generatePDF = async (name, roll, programme, branch, roomNo, hallNo, purpose, email, altEmail, contact, local, permanent, thesis, date1, head, date2) => {
+const generatePDF = async (academicYear, semester, name, category, roomNo, hallNo, rollNo, programme, branch, email, altEmail, mobile, tsaAcc, branchBank, ifscCode, amt1, mode1, act1, ref1, date1, amt2, mode2, act2, ref2, date2, adhaar1, income1, parent1, adhaar2, income2, parent2) => {
 
-    const exBytes = await fetch("./SBF.pdf").then((res) =>
+    const exBytes = await fetch("./Excess_Fee_Refund_form.pdf").then((res) =>
         res.arrayBuffer()
     );
 
     const exFont = await fetch("./Sanchez-Regular.ttf").then((res) =>
         res.arrayBuffer()
     );
-
 
     const pdfDoc = await PDFDocument.load(exBytes);
     pdfDoc.registerFontkit(fontkit);
@@ -36,457 +35,398 @@ const generatePDF = async (name, roll, programme, branch, roomNo, hallNo, purpos
     const pages = pdfDoc.getPages();
     const firstPage = pages[0];
 
-    firstPage.drawText(name, {
-        x: 171,
-        y: 565,
-        size: 12,
+    const font_size = 10;
+
+    firstPage.drawText(academicYear, {
+        x: 145,
+        y: 690,
+        size: font_size + 1,
         font: myFont,
         color: rgb(0, 0, 0),
     });
 
-    firstPage.drawText(roll, {
-        x: 120,
-        y: 527,
-        size: 12,
+    firstPage.drawText(semester, {
+        x: 420,
+        y: 690,
+        size: font_size,
         font: myFont,
         color: rgb(0, 0, 0),
     });
 
-    if (programme.length < 25) {
+    if (name.length > 24) {
+        firstPage.drawText(name.substring(0, 24), {
+            x: 145,
+            y: 675,
+            size: font_size,
+            font: myFont,
+            color: rgb(0, 0, 0),
+        });
+        firstPage.drawText(name.substring(24, name.length), {
+            x: 145,
+            y: 663,
+            size: font_size,
+            font: myFont,
+            color: rgb(0, 0, 0),
+        });
+    } else {
+        firstPage.drawText(name, {
+            x: 145,
+            y: 665,
+            size: font_size,
+            font: myFont,
+            color: rgb(0, 0, 0),
+        });
+    }
+
+    firstPage.drawText(roomNo + " /", {
+        x: 420,
+        y: 675,
+        size: font_size,
+        font: myFont,
+        color: rgb(0, 0, 0),
+    });
+
+    firstPage.drawText(hallNo.substring(0, 17), {
+        x: 455,
+        y: 675,
+        size: font_size,
+        font: myFont,
+        color: rgb(0, 0, 0),
+    });
+
+    firstPage.drawText(hallNo.substring(17, hallNo.length), {
+        x: 455,
+        y: 663,
+        size: font_size,
+        font: myFont,
+        color: rgb(0, 0, 0),
+    });
+
+    if (programme.length > 18) {
+        firstPage.drawText(programme.substring(0, 18), {
+            x: 420,
+            y: 648,
+            size: font_size,
+            font: myFont,
+            color: rgb(0, 0, 0),
+        });
+        firstPage.drawText(programme.substring(18, programme.length), {
+            x: 420,
+            y: 635,
+            size: font_size,
+            font: myFont,
+            color: rgb(0, 0, 0),
+        });
+    } else {
         firstPage.drawText(programme, {
-            x: 142,
-            y: 488,
-            size: 12,
-            font: myFont,
-            color: rgb(0, 0, 0),
-        });
-    } else {
-        firstPage.drawText(programme.substring(0, 25) + "-", {
-            x: 142,
-            y: 488,
-            size: 12,
-            font: myFont,
-            color: rgb(0, 0, 0),
-        });
-        firstPage.drawText(programme.substring(25, programme.length), {
-            x: 142,
-            y: 474,
-            size: 12,
+            x: 420,
+            y: 640,
+            size: font_size,
             font: myFont,
             color: rgb(0, 0, 0),
         });
     }
 
-    if (branch.length < 30) {
-        firstPage.drawText(branch, {
-            x: 355,
-            y: 488,
-            size: 12,
-            font: myFont,
-            color: rgb(0, 0, 0),
-        });
-    } else {
-        firstPage.drawText(branch.substring(0, 30) + "-", {
-            x: 355,
-            y: 488,
-            size: 12,
-            font: myFont,
-            color: rgb(0, 0, 0),
-        });
-        firstPage.drawText(branch.substring(30, branch.length), {
-            x: 355,
-            y: 474,
-            size: 12,
-            font: myFont,
-            color: rgb(0, 0, 0),
-        });
-    }
-
-    firstPage.drawText(roomNo, {
-        x: 132,
-        y: 450,
-        size: 12,
+    firstPage.drawText(category.substring(0, 17) + "-", {
+        x: 420,
+        y: 618,
+        size: font_size,
         font: myFont,
         color: rgb(0, 0, 0),
     });
 
-    firstPage.drawText(hallNo, {
-        x: 371,
-        y: 450,
-        size: 12,
+    firstPage.drawText(category.substring(17, category.length), {
+        x: 420,
+        y: 606,
+        size: font_size,
         font: myFont,
         color: rgb(0, 0, 0),
     });
 
-    if (purpose.length > 70) {
-        firstPage.drawText(purpose.substring(0, 70) + "-", {
-            x: 128,
-            y: 413,
-            size: 12,
-            font: myFont,
-            color: rgb(0, 0, 0),
-        });
-
-        firstPage.drawText(purpose.substring(70, purpose.length), {
-            x: 68,
-            y: 400,
-            size: 12,
-            font: myFont,
-            color: rgb(0, 0, 0),
-        });
-    } else {
-        firstPage.drawText(purpose, {
-            x: 128,
-            y: 413,
-            size: 12,
-            font: myFont,
-            color: rgb(0, 0, 0),
-        });
-    }
-
-    if (email.length > 23) {
-        firstPage.drawText(email.substring(0, 23), {
-            x: 123,
-            y: 377,
-            size: 12,
-            font: myFont,
-            color: rgb(0, 0, 0),
-        });
-
-        firstPage.drawText(email.substring(23, email.length), {
-            x: 123,
-            y: 364,
-            size: 12,
-            font: myFont,
-            color: rgb(0, 0, 0),
-        });
-
-    } else {
-        firstPage.drawText(email, {
-            x: 123,
-            y: 377,
-            size: 12,
-            font: myFont,
-            color: rgb(0, 0, 0),
-        });
-    }
-
-    if (altEmail.length > 23) {
-        firstPage.drawText(altEmail.substring(0, 23), {
-            x: 378,
-            y: 377,
-            size: 12,
-            font: myFont,
-            color: rgb(0, 0, 0),
-        });
-
-        firstPage.drawText(altEmail.substring(23, altEmail.length), {
-            x: 378,
-            y: 364,
-            size: 12,
-            font: myFont,
-            color: rgb(0, 0, 0),
-        });
-
-    } else {
-        firstPage.drawText(altEmail, {
-            x: 378,
-            y: 377,
-            size: 12,
-            font: myFont,
-            color: rgb(0, 0, 0),
-        });
-    }
-
-
-    firstPage.drawText(contact, {
-        x: 199,
-        y: 340,
-        size: 12,
+    firstPage.drawText(branch.substring(0, 26) + "-", {
+        x: 145,
+        y: 648,
+        size: font_size,
         font: myFont,
         color: rgb(0, 0, 0),
     });
 
-    if (local.length < 36) {
-        firstPage.drawText(local, {
-            x: 72,
-            y: 290,
-            size: 12,
-            font: myFont,
-            color: rgb(0, 0, 0),
-        });
-    } else if (local.length >= 36 && local.length < 68) {
-        firstPage.drawText(local.substring(0, 36) + "-", {
-            x: 72,
-            y: 290,
-            size: 12,
-            font: myFont,
-            color: rgb(0, 0, 0),
-        });
+    firstPage.drawText(branch.substring(26, branch.length), {
+        x: 145,
+        y: 636,
+        size: font_size,
+        font: myFont,
+        color: rgb(0, 0, 0),
+    });
 
-        firstPage.drawText(local.substring(36, local.length), {
-            x: 72,
-            y: 269,
-            size: 12,
-            font: myFont,
-            color: rgb(0, 0, 0),
-        });
-    } else if (local.length >= 68 && local.length < 102) {
-        firstPage.drawText(local.substring(0, 36) + "-", {
-            x: 72,
-            y: 290,
-            size: 12,
-            font: myFont,
-            color: rgb(0, 0, 0),
-        });
+    firstPage.drawText(rollNo, {
+        x: 145,
+        y: 610,
+        size: font_size + 1,
+        font: myFont,
+        color: rgb(0, 0, 0),
+    });
 
-        firstPage.drawText(local.substring(36, 68) + "-", {
-            x: 72,
-            y: 269,
-            size: 12,
-            font: myFont,
-            color: rgb(0, 0, 0),
-        });
+    firstPage.drawText(email, {
+        x: 143,
+        y: 577,
+        size: font_size,
+        font: myFont,
+        color: rgb(0, 0, 0),
+    });
 
-        firstPage.drawText(local.substring(68, local.length), {
-            x: 72,
-            y: 248,
-            size: 12,
-            font: myFont,
-            color: rgb(0, 0, 0),
-        });
-    } else {
-        firstPage.drawText(local.substring(0, 36) + "-", {
-            x: 72,
-            y: 290,
-            size: 12,
-            font: myFont,
-            color: rgb(0, 0, 0),
-        });
+    firstPage.drawText(altEmail, {
+        x: 418,
+        y: 577,
+        size: font_size,
+        font: myFont,
+        color: rgb(0, 0, 0),
+    });
 
-        firstPage.drawText(local.substring(36, 68) + "-", {
-            x: 72,
-            y: 269,
-            size: 12,
-            font: myFont,
-            color: rgb(0, 0, 0),
-        });
+    firstPage.drawText(mobile, {
+        x: 145,
+        y: 563,
+        size: font_size + 1,
+        font: myFont,
+        color: rgb(0, 0, 0),
+    });
 
-        firstPage.drawText(local.substring(68, 102) + "-", {
-            x: 72,
-            y: 248,
-            size: 12,
-            font: myFont,
-            color: rgb(0, 0, 0),
-        });
-        firstPage.drawText(local.substring(102, local.length), {
-            x: 72,
-            y: 230,
-            size: 12,
-            font: myFont,
-            color: rgb(0, 0, 0),
-        });
-    }
+    firstPage.drawText(tsaAcc, {
+        x: 145,
+        y: 540,
+        size: font_size + 1,
+        font: myFont,
+        color: rgb(0, 0, 0),
+    });
 
-    if (permanent.length < 36) {
-        firstPage.drawText(permanent, {
-            x: 315,
-            y: 290,
-            size: 12,
-            font: myFont,
-            color: rgb(0, 0, 0),
-        });
-    } else if (permanent.length >= 36 && permanent.length < 68) {
-        firstPage.drawText(permanent.substring(0, 36) + "-", {
-            x: 315,
-            y: 290,
-            size: 12,
-            font: myFont,
-            color: rgb(0, 0, 0),
-        });
+    firstPage.drawText(ifscCode, {
+        x: 420,
+        y: 550,
+        size: font_size,
+        font: myFont,
+        color: rgb(0, 0, 0),
+    });
 
-        firstPage.drawText(permanent.substring(36, permanent.length), {
-            x: 315,
-            y: 269,
-            size: 12,
-            font: myFont,
-            color: rgb(0, 0, 0),
-        });
-    } else if (permanent.length >= 68 && permanent.length < 102) {
-        firstPage.drawText(permanent.substring(0, 36) + "-", {
-            x: 315,
-            y: 290,
-            size: 12,
-            font: myFont,
-            color: rgb(0, 0, 0),
-        });
+    firstPage.drawText(branchBank, {
+        x: 420,
+        y: 525,
+        size: font_size,
+        font: myFont,
+        color: rgb(0, 0, 0),
+    });
 
-        firstPage.drawText(permanent.substring(36, 68) + "-", {
-            x: 315,
-            y: 269,
-            size: 12,
-            font: myFont,
-            color: rgb(0, 0, 0),
-        });
+    firstPage.drawText(amt1, {
+        x: 50,
+        y: 446,
+        size: font_size + 1,
+        font: myFont,
+        color: rgb(0, 0, 0),
+    });
 
-        firstPage.drawText(permanent.substring(68, permanent.length), {
-            x: 315,
-            y: 248,
-            size: 12,
-            font: myFont,
-            color: rgb(0, 0, 0),
-        });
-    } else {
-        firstPage.drawText(permanent.substring(0, 36) + "-", {
-            x: 315,
-            y: 290,
-            size: 12,
-            font: myFont,
-            color: rgb(0, 0, 0),
-        });
+    firstPage.drawText(amt2, {
+        x: 50,
+        y: 430,
+        size: font_size + 1,
+        font: myFont,
+        color: rgb(0, 0, 0),
+    });
 
-        firstPage.drawText(permanent.substring(36, 68) + "-", {
-            x: 315,
-            y: 269,
-            size: 12,
-            font: myFont,
-            color: rgb(0, 0, 0),
-        });
+    firstPage.drawText(mode1, {
+        x: 160,
+        y: 446,
+        size: font_size,
+        font: myFont,
+        color: rgb(0, 0, 0),
+    });
 
-        firstPage.drawText(permanent.substring(68, 102) + "-", {
-            x: 315,
-            y: 248,
-            size: 12,
-            font: myFont,
-            color: rgb(0, 0, 0),
-        });
-        firstPage.drawText(permanent.substring(102, permanent.length), {
-            x: 315,
-            y: 230,
-            size: 12,
-            font: myFont,
-            color: rgb(0, 0, 0),
-        });
-    }
+    firstPage.drawText(mode2, {
+        x: 160,
+        y: 430,
+        size: font_size,
+        font: myFont,
+        color: rgb(0, 0, 0),
+    });
 
-    if (thesis.length > 21) {
+    firstPage.drawText(act1, {
+        x: 270,
+        y: 446,
+        size: font_size + 1,
+        font: myFont,
+        color: rgb(0, 0, 0),
+    });
 
-        firstPage.drawText(thesis.substring(0, 21) + "-", {
-            x: 255,
-            y: 169,
-            size: 12,
-            font: myFont,
-            color: rgb(0, 0, 0),
-        });
+    firstPage.drawText(act2, {
+        x: 270,
+        y: 430,
+        size: font_size + 1,
+        font: myFont,
+        color: rgb(0, 0, 0),
+    });
 
-        firstPage.drawText(thesis.substring(21, thesis.length), {
-            x: 255,
-            y: 153,
-            size: 12,
-            font: myFont,
-            color: rgb(0, 0, 0),
-        });
+    firstPage.drawText(ref1, {
+        x: 380,
+        y: 446,
+        size: font_size + 1,
+        font: myFont,
+        color: rgb(0, 0, 0),
+    });
 
-
-    } else {
-        firstPage.drawText(thesis, {
-            x: 255,
-            y: 169,
-            size: 12,
-            font: myFont,
-            color: rgb(0, 0, 0),
-        });
-    }
-
+    firstPage.drawText(ref2, {
+        x: 380,
+        y: 430,
+        size: font_size + 1,
+        font: myFont,
+        color: rgb(0, 0, 0),
+    });
 
     firstPage.drawText(date1, {
-        x: 435,
-        y: 169,
-        size: 12,
+        x: 475,
+        y: 446,
+        size: font_size + 1,
         font: myFont,
         color: rgb(0, 0, 0),
     });
-
-    if (head.length > 12) {
-
-        firstPage.drawText(head.substring(0, 12) + "-", {
-            x: 315,
-            y: 116,
-            size: 12,
-            font: myFont,
-            color: rgb(0, 0, 0),
-        });
-
-        firstPage.drawText(head.substring(12, head.length), {
-            x: 315,
-            y: 101,
-            size: 12,
-            font: myFont,
-            color: rgb(0, 0, 0),
-        });
-
-
-    } else {
-        firstPage.drawText(head, {
-            x: 315,
-            y: 116,
-            size: 12,
-            font: myFont,
-            color: rgb(0, 0, 0),
-        });
-    }
-
 
     firstPage.drawText(date2, {
-        x: 437,
-        y: 116,
-        size: 12,
+        x: 475,
+        y: 430,
+        size: font_size + 1,
         font: myFont,
         color: rgb(0, 0, 0),
     });
+
+    firstPage.drawText(adhaar1, {
+        x: 50,
+        y: 352,
+        size: font_size + 1,
+        font: myFont,
+        color: rgb(0, 0, 0),
+    });
+
+    firstPage.drawText(adhaar2, {
+        x: 50,
+        y: 335,
+        size: font_size + 1,
+        font: myFont,
+        color: rgb(0, 0, 0),
+    });
+
+    firstPage.drawText(parent1, {
+        x: 140,
+        y: 352,
+        size: font_size,
+        font: myFont,
+        color: rgb(0, 0, 0),
+    });
+
+    firstPage.drawText(parent2, {
+        x: 140,
+        y: 335,
+        size: font_size,
+        font: myFont,
+        color: rgb(0, 0, 0),
+    });
+
+    firstPage.drawText(income1, {
+        x: 330,
+        y: 352,
+        size: font_size + 1,
+        font: myFont,
+        color: rgb(0, 0, 0),
+    });
+
+    firstPage.drawText(income2, {
+        x: 330,
+        y: 335,
+        size: font_size + 1,
+        font: myFont,
+        color: rgb(0, 0, 0),
+    });
+
 
     const pdfBytes = await pdfDoc.save();
 
     var file = new File(
-    [pdfBytes],
-    "SBF Loan Form.pdf",
-    {
-      type: "application/pdf;charset=utf-8",
-    }
-  );
- saveAs(file);
+        [pdfBytes],
+        "Security_Deposit_Refund.pdf",
+        {
+            type: "application/pdf;charset=utf-8",
+        }
+    );
+    saveAs(file);
+
+
+    // const uri = await pdfDoc.saveAsBase64({ dataUri: true })
 
     // document.querySelector('#mypdf').src = uri
-
 };
 
 const submitBtn = document.getElementById('btn')
 
+const academicYear = document.querySelector('#academicYear')
+const semester = document.querySelector('#semester')
 const name = document.querySelector("#studentInput")
-const roll = document.querySelector("#rollInput")
-const programme = document.querySelector("#programmeInput")
-const branch = document.querySelector("#branchInput")
+const category = document.querySelector("#category")
 const roomNo = document.querySelector("#roomNoInput")
 const hallNo = document.querySelector("#hallInput")
+const rollNo = document.querySelector("#rollInput")
+const programme = document.querySelector("#programmeInput")
+const branch = document.querySelector("#branchInput")
 const email = document.querySelector("#emailInput")
 const altEmail = document.querySelector("#altEmailInput")
-const local = document.querySelector("#locAddInput")
-const permanent = document.querySelector("#perAddInput")
-const contact = document.querySelector("#contactParInput")
-const purpose = document.querySelector("#purposeInput")
-const thesis = document.querySelector("#thesisInput")
+const mobile = document.querySelector("#mobileInput")
+const tsaAcc = document.querySelector("#tsaAcc")
+const branchBank = document.querySelector("#branchName")
+const ifscCode = document.querySelector("#ifsc")
+
+console.log(academicYear.value);
+console.log(semester.value);
+console.log(name.value);
+console.log(category.value);
+console.log(roomNo.value);
+console.log(hallNo.value);
+console.log(rollNo.value);
+console.log(programme.value);
+console.log(branch.value);
+console.log(email.value);
+console.log(altEmail.value);
+console.log(mobile.value);
+console.log(tsaAcc.value);
+console.log(branchBank.value);
+console.log(ifscCode.value);
+
+const amt1 = document.querySelector("#amt1")
+const mode1 = document.querySelector("#mode1")
+const act1 = document.querySelector("#actAmt1")
+const ref1 = document.querySelector("#refAmt1")
 const date1 = document.querySelector("#date1Input")
-const head = document.querySelector("#headInput")
+
+const amt2 = document.querySelector("#amt2")
+const mode2 = document.querySelector("#mode2")
+const act2 = document.querySelector("#actAmt2")
+const ref2 = document.querySelector("#refAmt2")
 const date2 = document.querySelector("#date2Input")
 
-submitBtn.addEventListener('click', () => {
+const adhaar1 = document.querySelector("#adhaar1")
+const income1 = document.querySelector("#income1")
+const parent1 = document.querySelector("#parent1")
 
-    if(name.value.length==0 || roll.value.length==0 || roomNo.value.length==0 || email.value.length==0 || altEmail.value.length==0 || local.value.length==0 || permanent.value.length==0 || contact.value.length==0 || purpose.value.length==0){
+const adhaar2 = document.querySelector("#adhaar2")
+const income2 = document.querySelector("#income2")
+const parent2 = document.querySelector("#parent2")
+
+submitBtn.addEventListener('click', (ev) => {
+
+    ev.preventDefault()
+
+    if (academicYear.value.length == 0 || semester.value.length == 0 || name.value.length == 0 || category.value.length == 0 || roomNo.value.length == 0 || hallNo.value.length == 0 || rollNo.value.length == 0 || programme.value.length == 0 || branch.value.length == 0 || email.value.length == 0 || altEmail.value.length == 0 || mobile.value.length == 0 || tsaAcc.value.length == 0 || branchBank.value.length == 0 || ifscCode.value.length == 0) {
         alert("Please fill all the required details before submitting")
         return
     }
-    generatePDF(name.value, roll.value, programme.value, branch.value, roomNo.value, hallNo.value, purpose.value, email.value, altEmail.value, contact.value, local.value, permanent.value, thesis.value, date1.value, head.value, date2.value)
+
+    generatePDF(academicYear.value, semester.value.toUpperCase(), name.value.toUpperCase(), category.value.toUpperCase(), roomNo.value.toUpperCase(), hallNo.value.toUpperCase(), rollNo.value, programme.value.toUpperCase(), branch.value.toUpperCase(), email.value, altEmail.value, mobile.value, tsaAcc.value, branchBank.value.toUpperCase(), ifscCode.value, amt1.value, mode1.value.toUpperCase(), act1.value, ref1.value, date1.value, amt2.value, mode2.value.toUpperCase(), act2.value, ref2.value, date2.value, adhaar1.value, income1.value, parent1.value.toUpperCase(), adhaar2.value, income2.value, parent2.value.toUpperCase())
 })
+
 
 
 

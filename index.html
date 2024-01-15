@@ -14,70 +14,45 @@
 </head>
 
 <body>
-    <!-- <iframe src="./SBF.pdf" frameborder="0" id="mypdf" height="700px" width="600px"></iframe> -->
+    <!-- <iframe src="./Excess_Fee_Refund_form.pdf" frameborder="0" id="mypdf" height="700px" width="600px"></iframe> -->
     <div class="container">
         <div class="text">
-            SBF Loan Application Form
+            EXCESS FEE REFUND FORM
         </div>
-        <form action="#" name="google-sheet">
+        <form id="google-sheet">
             <div class="form-row">
                 <div class="input-data">
-                    <input type="text" id="studentInput" name="Name" required>
-                    <div class="underline"></div>
-                    <label id="studentName">Name Of Student</label>
+                    <select name="Academic Year" id="academicYear">
+                        <option value="">Academic Year</option>
+                    </select>
                 </div>
                 <div class="input-data">
-                    <input type="number" id="rollInput" name="Roll No" required>
-                    <div class="underline"></div>
-                    <label id="rollName">Roll No</label>
+                    <select name="Semester" id="semester">
+                        <option value="">Semester</option>
+                        <option value="Odd">Odd</option>
+                        <option value="Even">Even</option>
+                        <option value="Summer">Summer</option>
+                        <option value=" ">None Of The Above</option>
+                    </select>
                 </div>
             </div>
             <div class="form-row">
                 <div class="input-data">
-                    <select id="programmeInput" name="Programme">
-                        <option value="" >Programme</option>
-                        <option value="Bachelor Of Technology (B.Tech)">Bachelor Of Technology (B.Tech)</option>
-                        <option value="Master Of Technology (M.Tech)">Master Of Technology (M.Tech)</option>
-                        <option value="Bachelor Of Science (B.S)">Bachelor Of Science (B.S)</option>
-                        <option value="Master Of Science (M.Sc)">Master Of Science (M.Sc)</option>
-                        <option value="Dual Degree Programme">Dual Degree Programme</option>
-                        <option value="Master Of Business Administration (MBA)">Master Of Business Administration (MBA)</option>
-                        <option value="Doctor of Philosophy (Ph.D)">Doctor of Philosophy (Ph.D)</option>
-                        <option value="Master of Design (M.Des)">Master of Design (M.Des)</option>
-                        <option value="">None</option>
-                    </select>
+                    <input type="text" id="studentInput" name="Student Name" required>
                     <div class="underline"></div>
+                    <label id="studentName">Student Name</label>
                 </div>
                 <div class="input-data">
-                    <select id="branchInput" name="Branch">
-                        <option value="" >Branch</option>
-                        <option value="Aerospace Engineering">Aerospace Engineering</option>
-                        <option value="Biological Sciences and Bio-Engineering">Biological Sciences and Bio-Engineering</option>
-                        <option value="Chemical Engineering">Chemical Engineering</option>
-                        <option value="Chemistry">Chemistry</option>
-                        <option value="Civil Engineering">Civil Engineering</option>
-                        <option value="Cognitive Science">Cognitive Science</option>
-                        <option value="Computer Science and Engineering">Computer Science and Engineering</option>
-                        <option value="Design">Design</option>
-                        <option value="Earth Sciences">Earth Sciences</option>
-                        <option value="Economics">Economics</option>
-                        <option value="Economic Sciences">Economic Sciences</option>
-                        <option value="Electrical Engineering">Electrical Engineering</option>
-                        <option value="Humanities and Social Sciences">Humanities and Social Sciences</option>
-                        <option value="Management Sciences">Management Sciences</option>
-                        <option value="Materials Science and Engineering">Materials Science and Engineering</option>
-                        <option value="Materials Science Program">Materials Science Program</option>
-                        <option value="Mathematics">Mathematics</option>
-                        <option value="Mathematics and Scientific Computing">Mathematics and Scientific Computing</option>
-                        <option value="Nuclear Engineering and Technology">Nuclear Engineering and Technology</option>
-                        <option value="Photonics Science and Engineering">Photonics Science and Engineering</option>
-                        <option value="Physics">Physics</option>
-                        <option value="Statistics">Statistics</option>
-                        <option value="Statistics and Data Science">Statistics and Data Science</option>
-                        <option value="Sustainable Energy Engineering">Sustainable Energy Engineering</option>
-                        <option value="">None</option>
+                    <select name="Category" id="category">
+                        <option value="">Category</option>
+                        <option value="General">General (GNs)</option>
+                        <option value="Other Backward Class">Other Backward Class (OBC)</option>
+                        <option value="Scheduled Caste">Scheduled Caste (SC)</option>
+                        <option value="Scheduled Tribe">Scheduled Tribe (ST)</option>
+                        <option value="Economically Weaker Section">Economically Weaker Section (EWS)</option>
+                        <option value="Foreign National">Foreign National (FN)</option>
+                        <option value=" ">None Of The Above</option>
                     </select>
-                    <div class="underline"></div>
                 </div>
             </div>
             <div class="form-row">
@@ -104,7 +79,63 @@
                         <option value="Hall Of Residence No. 14">Hall Of Residence No. 14</option>
                         <option value="Hall Of Residence For Girls-1">Hall Of Residence For Girls-1</option>
                         <option value="Hall Of Residence For Girls-6">Hall Of Residence For Girls-6</option>
-                        <option value="">None</option>
+                        <option value=" ">None Of The Above</option>
+                    </select>
+                    <div class="underline"></div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="input-data">
+                    <input type="text" id="rollInput" name="Roll No" required>
+                    <div class="underline"></div>
+                    <label id="rollNO">Roll No (Dual Degree student please write both Roll No)</label>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="input-data">
+                    <select id="programmeInput" name="Programme">
+                        <option value="">Programme</option>
+                        <option value="Bachelor Of Technology">Bachelor Of Technology (B.Tech)</option>
+                        <option value="Master Of Technology">Master Of Technology (M.Tech)</option>
+                        <option value="Bachelor Of Science">Bachelor Of Science (B.S)</option>
+                        <option value="Master Of Science">Master Of Science (M.Sc)</option>
+                        <option value="Dual Degree Programme">Dual Degree Programme</option>
+                        <option value="Master Of Business Administration">Master Of Business Administration (MBA)</option>
+                        <option value="Doctor of Philosophy">Doctor of Philosophy (Ph.D)</option>
+                        <option value="Master of Design">Master of Design (M.Des)</option>
+                        <option value=" ">None Of The Above</option>
+                    </select>
+                    <div class="underline"></div>
+                </div>
+                <div class="input-data">
+                    <select id="branchInput" name="Branch">
+                        <option value="">Branch</option>
+                        <option value="Aerospace Engineering">Aerospace Engineering</option>
+                        <option value="Biological Sciences and Bio-Engineering">Biological Sciences and Bio-Engineering</option>
+                        <option value="Chemical Engineering">Chemical Engineering</option>
+                        <option value="Chemistry">Chemistry</option>
+                        <option value="Civil Engineering">Civil Engineering</option>
+                        <option value="Cognitive Science">Cognitive Science</option>
+                        <option value="Computer Science and Engineering">Computer Science and Engineering</option>
+                        <option value="Design">Design</option>
+                        <option value="Earth Sciences">Earth Sciences</option>
+                        <option value="Economics">Economics</option>
+                        <option value="Economic Sciences">Economic Sciences</option>
+                        <option value="Electrical Engineering">Electrical Engineering</option>
+                        <option value="Humanities and Social Sciences">Humanities and Social Sciences</option>
+                        <option value="Management Sciences">Management Sciences</option>
+                        <option value="Materials Science and Engineering">Materials Science and Engineering</option>
+                        <option value="Materials Science Program">Materials Science Program</option>
+                        <option value="Mathematics">Mathematics</option>
+                        <option value="Mathematics and Scientific Computing">Mathematics and Scientific Computing</option>
+                        <option value="Mechanical Engineering">Mechanical Engineering</option>
+                        <option value="Nuclear Engineering and Technology">Nuclear Engineering and Technology</option>
+                        <option value="Photonics Science and Engineering">Photonics Science and Engineering</option>
+                        <option value="Physics">Physics</option>
+                        <option value="Statistics">Statistics</option>
+                        <option value="Statistics and Data Science">Statistics and Data Science</option>
+                        <option value="Sustainable Energy Engineering">Sustainable Energy Engineering</option>
+                        <option value=" ">None Of The Above</option>
                     </select>
                     <div class="underline"></div>
                 </div>
@@ -113,7 +144,7 @@
                 <div class="input-data">
                     <input type="email" id="emailInput" name="Email" required>
                     <div class="underline"></div>
-                    <label id="emailName">Email Id</label>
+                    <label id="emailName">Email</label>
                 </div>
                 <div class="input-data">
                     <input type="email" id="altEmailInput" name="Alternate Email" required>
@@ -123,74 +154,231 @@
             </div>
             <div class="form-row">
                 <div class="input-data">
-                    <input type="text" id="locAddInput" name="Local Address" required>
+                    <input type="tel" id="mobileInput" name="Mobile" required>
                     <div class="underline"></div>
-                    <label id="locAddName">Local Address</label>
-                </div>
-                <div class="input-data">
-                    <input type="text" id="perAddInput" name="Permanent Address" required>
-                    <div class="underline"></div>
-                    <label id="perAddName">Permanent Address</label>
+                    <label id="mobile11">Mobile</label>
                 </div>
             </div>
             <div class="form-row">
                 <div class="input-data">
-                    <input type="tel" id="contactParInput" name="Contact Of Parents" pattern="[0-9]{10}" title="Enter 10 digits contact no" required>
+                    <input type="text" id="tsaAcc" name="TSA Bank Account No." required>
                     <div class="underline"></div>
-                    <label id="contactParName">Contact No of Parents</label>
-                </div>
-                <div class="input-data">
-                    <input type="text" id="purposeInput" name="Purpose" required>
-                    <div class="underline"></div>
-                    <label id="purposeName">Purpose</label>
+                    <label id="tsaAcc11">TSA Bank Account No (Write you’re a/c no which is given in IITK Account section)</label>
                 </div>
             </div>
             <div class="form-row">
                 <div class="input-data">
-                    <input type="text" id="thesisInput" name="Thesis Guide">
+                    <input type="text" id="ifsc" name="IFSC Code">
                     <div class="underline"></div>
-                    <label id="thesisName">Recommended By (Thesis Guide)(For Masters Students)</label>
+                    <label id="ifsc11">IFSC Code</label>
                 </div>
                 <div class="input-data">
-                    <input type="text" id="date1Input" name="Date(Thesis Guide)">
+                    <input type="text" id="branchName" name="Branch Name">
                     <div class="underline"></div>
-                    <label id="date1Name">Date (DD/MM/YYYY)</label>
+                    <label id="branchName11">Branch Name</label>
+                </div>
+            </div>
+            <div style="text-align: center;font-size: 17px;font-weight: bold;color: red;">
+                <label>Payment Details: (Filled by the student)</label>
+            </div>
+            <div style="text-align: center;font-size: 17px;font-weight: 500;color: black;margin-top: 2.5rem;">
+                <label>(A)</label>
+            </div>
+            <div class="form-row">
+                <div class="input-data">
+                    <input type="number" id="amt1" name="Fees Paid by Student Amount (Rs.) (A)">
+                    <div class="underline"></div>
+                    <label id="amt11">Fees Paid by Student Amount (Rs.)</label>
+                </div>
+                <div class="input-data">
+                    <select name="Mode (A)" id="mode1">
+                        <option value="">Mode Of Payment</option>
+                        <option value="Net Banking">Net Banking</option>
+                        <option value="NEFT"> NEFT</option>
+                        <option value="Deposit">Deposit in Institute Account</option>
+                        <option value="">None Of The Above</option>
+                    </select>
                 </div>
             </div>
             <div class="form-row">
                 <div class="input-data">
-                    <input type="text" id="headInput" name="Head Of Department">
+                    <input type="number" id="actAmt1" name="Actual Fees Amount (Rs.) (A)">
                     <div class="underline"></div>
-                    <label id="headName">Recommended By (Head Of The Department)</label>
+                    <label id="actAmt11">Actual Fees Amount (Rs.)</label>
                 </div>
                 <div class="input-data">
-                    <input type="text" id="date2Input" name="Date(Head Of Department)">
+                    <input type="number" id="refAmt1" name="Amount to be refunded (Rs.) (A)">
                     <div class="underline"></div>
-                    <label id="date2Name">Date (DD/MM/YYYY)</label>
+                    <label id="refAmt11">Amount to be refunded (Rs.)</label>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="input-data">
+                    <input type="date" id="date1Input" name="Dated (YYYY-MM-DD) (A)" required value=" ">
+                    <div class="underline"></div>
+                    <label id="date1Name1">Dated (DD-MM-YYYY)</label>
+                </div>
+            </div>
+            <div style="text-align: center;font-size: 17px;font-weight: 500;color: black;margin-top: 3.5rem;">
+                <label>(B)</label>
+            </div>
+            <div class="form-row">
+                <div class="input-data">
+                    <input type="number" id="amt2" name="Fees Paid by Student Amount (Rs.) (B)">
+                    <div class="underline"></div>
+                    <label id="amt12">Fees Paid by Student Amount (Rs.)</label>
+                </div>
+                <div class="input-data">
+                    <select name="Mode (B)" id="mode2">
+                        <option value="">Mode Of Payment</option>
+                        <option value="Net Banking">Net Banking</option>
+                        <option value="NEFT"> NEFT</option>
+                        <option value="Deposit">Deposit in Institute Account</option>
+                        <option value="">None Of The Above</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="input-data">
+                    <input type="number" id="actAmt2" name="Actual Fees Amount (Rs.) (B)">
+                    <div class="underline"></div>
+                    <label id="actAmt22">Actual Fees Amount (Rs.)</label>
+                </div>
+                <div class="input-data">
+                    <input type="number" id="refAmt2" name="Amount to be refunded (Rs.) (B)">
+                    <div class="underline"></div>
+                    <label id="refAmt22">Amount to be refunded (Rs.)</label>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="input-data">
+                    <input type="date" id="date2Input" name="Dated (YYYY-MM-DD) (B)" required value=" ">
+                    <div class="underline"></div>
+                    <label id="date2Name2">Dated (DD-MM-YYYY)</label>
+                </div>
+            </div>
+            <div style="text-align: center;font-size: 17px;font-weight: bold;color: red;">
+                <label>Provide the following if Fees waiver claimed</label>
+            </div>
+            <div style="text-align: center;font-size: 17px;font-weight: 500;color: black;margin-top: 2.5rem;">
+                <label>(A)</label>
+            </div>
+            <div class="form-row">
+                <div class="input-data">
+                    <input type="number" id="adhaar1" name="Aadhar Number (A)">
+                    <div class="underline"></div>
+                    <label id="adhaar11">Aadhar Number</label>
+                </div>
+                <div class="input-data">
+                    <input type="number" id="income1" name="Income In (Rs.) (A)">
+                    <div class="underline"></div>
+                    <label id="income11">Income In (Rs.)</label>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="input-data">
+                    <input type="text" id="parent1" name="Parents names as per DOAA (A)">
+                    <div class="underline"></div>
+                    <label id="parent11">Parents names as per DOAA</label>
+                </div>
+            </div>
+            <div style="text-align: center;font-size: 17px;font-weight: 500;color: black;margin-top: 3.5rem;">
+                <label>(B)</label>
+            </div>
+            <div class="form-row">
+                <div class="input-data">
+                    <input type="number" id="adhaar2" name="Aadhar Number (B)">
+                    <div class="underline"></div>
+                    <label id="adhaar12">Aadhar Number</label>
+                </div>
+                <div class="input-data">
+                    <input type="number" id="income2" name="Income In (Rs.) (B)">
+                    <div class="underline"></div>
+                    <label id="income12">Income In (Rs.)</label>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="input-data">
+                    <input type="text" id="parent2" name="Parents names as per DOAA (B)">
+                    <div class="underline"></div>
+                    <label id="parent12">Parents names as per DOAA</label>
                 </div>
             </div>
             <div class="form-row">
                 <div class="input-data textarea">
-                <div class="form-row submit-btn">
-                    <div class="input-data" id="btn">
-                        <div class="inner"></div>
-                        <input type="submit" value="Submit" name="submit">
+                    <div class="form-row submit-btn">
+                        <div class="input-data" id="btn">
+                            <div class="inner"></div>
+                            <input type="button" value="Submit" name="submit" id="btn">
+                        </div>
                     </div>
                 </div>
-
+            </div>
         </form>
     </div>
-                <script>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbw4QsX4wLVoAQ1F9pdZa6tr9ar7g5URh9f0fqEdcdkilh_FrATyco2fLmOc0gaMzkob/exec'
-        const form = document.forms['google-sheet']
+    <script>
 
-        form.addEventListener('submit', e => {
+        const selectElement = document.getElementById("academicYear");
+        const currentYear = new Date().getFullYear();
+
+        for (let year = currentYear - 8; year <= currentYear + 1; year++) {
+            const option = document.createElement("option");
+            option.value = year +"-"+(year+1).toString().slice(2);
+            option.textContent = year +"-"+(year+1).toString().slice(2);
+            selectElement.appendChild(option);
+        }
+
+        const academicYear = document.querySelector('#academicYear')
+        const semester = document.querySelector('#semester')
+        const name = document.querySelector("#studentInput")
+        const category = document.querySelector("#category")
+        const roomNo = document.querySelector("#roomNoInput")
+        const hallNo = document.querySelector("#hallInput")
+        const rollNo = document.querySelector("#rollInput")
+        const programme = document.querySelector("#programmeInput")
+        const branch = document.querySelector("#branchInput")
+        const email = document.querySelector("#emailInput")
+        const altEmail = document.querySelector("#altEmailInput")
+        const mobile = document.querySelector("#mobileInput")
+        const tsaAcc = document.querySelector("#tsaAcc")
+        const branchBank = document.querySelector("#branchName")
+        const ifscCode = document.querySelector("#ifsc")
+
+        const amt1 = document.querySelector("#amt1")
+        const mode1 = document.querySelector("#mode1")
+        const act1 = document.querySelector("#actAmt1")
+        const ref1 = document.querySelector("#refAmt1")
+        const date1 = document.querySelector("#date1Input")
+
+        const amt2 = document.querySelector("#amt2")
+        const mode2 = document.querySelector("#mode2")
+        const act2 = document.querySelector("#actAmt2")
+        const ref2 = document.querySelector("#refAmt2")
+        const date2 = document.querySelector("#date2Input")
+
+        const adhaar1 = document.querySelector("#adhaar1")
+        const income1 = document.querySelector("#income1")
+        const parent1 = document.querySelector("#parent1")
+
+        const adhaar2 = document.querySelector("#adhaar2")
+        const income2 = document.querySelector("#income2")
+        const parent2 = document.querySelector("#parent2")
+
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyhX7ujPv9Ki5ElmAWXPGV3YHYoK5MmgTWpCb0gFhUewXH9NdBnzqOYrKYI8gm9Xync/exec'
+        const form = document.getElementById('google-sheet')
+        const btn = document.getElementById('btn')
+
+        btn.addEventListener('click', e => {
             e.preventDefault()
+            if (academicYear.value.length == 0 || semester.value.length == 0 || name.value.length == 0 || category.value.length == 0 || roomNo.value.length == 0 || hallNo.value.length == 0 || rollNo.value.length == 0 || programme.value.length == 0 || branch.value.length == 0 || email.value.length == 0 || altEmail.value.length == 0 || mobile.value.length == 0 || tsaAcc.value.length == 0 || branchBank.value.length == 0 || ifscCode.value.length == 0) {
+                return
+            }
             fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-                .then(response => alert("SBF Loan Form submitted successfully"))
+                .then(response => alert("Excess Refund Form submitted successfully"))
                 .catch(error => console.error('Error!', error.message))
         })
     </script>
+
 </body>
 
 </html>

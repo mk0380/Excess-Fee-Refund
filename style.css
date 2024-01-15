@@ -151,6 +151,12 @@ body::-webkit-scrollbar { /* WebKit */
   position: relative;
   z-index: 2;
 }
+input[type=date]:invalid::-webkit-datetime-edit {
+  color: transparent;
+}
+input[type=date]:focus::-webkit-datetime-edit {
+  color: black !important;
+}
 @media (max-width: 700px) {
   .container .text{
     font-size: 30px;
