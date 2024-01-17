@@ -23,12 +23,12 @@
             <div class="form-row">
                 <div class="input-data">
                     <select name="Academic Year" id="academicYear">
-                        <option value="">Academic Year</option>
+                        <option value="">Academic Year<span class="required">*</span></option>
                     </select>
                 </div>
                 <div class="input-data">
                     <select name="Semester" id="semester">
-                        <option value="">Semester</option>
+                        <option value="">Semester<span class="required">*</span></option>
                         <option value="Odd">Odd</option>
                         <option value="Even">Even</option>
                         <option value="Summer">Summer</option>
@@ -40,11 +40,11 @@
                 <div class="input-data">
                     <input type="text" id="studentInput" name="Student Name" required>
                     <div class="underline"></div>
-                    <label id="studentName">Student Name</label>
+                    <label id="studentName">Student Name<span class="required">*</span></label>
                 </div>
                 <div class="input-data">
                     <select name="Category" id="category">
-                        <option value="">Category</option>
+                        <option value="">Category<span class="required">*</span></option>
                         <option value="General">General (GNs)</option>
                         <option value="Other Backward Class">Other Backward Class (OBC)</option>
                         <option value="Scheduled Caste">Scheduled Caste (SC)</option>
@@ -59,11 +59,11 @@
                 <div class="input-data">
                     <input type="text" id="roomNoInput" name="Room No" required>
                     <div class="underline"></div>
-                    <label id="roomNoName">Room No</label>
+                    <label id="roomNoName">Room No<span class="required">*</span></label>
                 </div>
                 <div class="input-data">
                     <select name="Hall No" id="hallInput">
-                        <option value="">Hall No</option>
+                        <option value="">Hall No<span class="required">*</span></option>
                         <option value="Hall Of Residence No. 1">Hall Of Residence No. 1</option>
                         <option value="Hall Of Residence No. 2">Hall Of Residence No. 2</option>
                         <option value="Hall Of Residence No. 3">Hall Of Residence No. 3</option>
@@ -88,13 +88,13 @@
                 <div class="input-data">
                     <input type="text" id="rollInput" name="Roll No" required>
                     <div class="underline"></div>
-                    <label id="rollNO">Roll No (Dual Degree student please write both Roll No)</label>
+                    <label id="rollNO">Roll No (Dual Degree student please write both Roll No)<span class="required">*</span></label>
                 </div>
             </div>
             <div class="form-row">
                 <div class="input-data">
                     <select id="programmeInput" name="Programme">
-                        <option value="">Programme</option>
+                        <option value="">Programme<span class="required">*</span></option>
                         <option value="Bachelor Of Technology">Bachelor Of Technology (B.Tech)</option>
                         <option value="Master Of Technology">Master Of Technology (M.Tech)</option>
                         <option value="Bachelor Of Science">Bachelor Of Science (B.S)</option>
@@ -109,7 +109,7 @@
                 </div>
                 <div class="input-data">
                     <select id="branchInput" name="Branch">
-                        <option value="">Branch</option>
+                        <option value="">Branch<span class="required">*</span></option>
                         <option value="Aerospace Engineering">Aerospace Engineering</option>
                         <option value="Biological Sciences and Bio-Engineering">Biological Sciences and Bio-Engineering</option>
                         <option value="Chemical Engineering">Chemical Engineering</option>
@@ -144,38 +144,38 @@
                 <div class="input-data">
                     <input type="email" id="emailInput" name="Email" required>
                     <div class="underline"></div>
-                    <label id="emailName">Email</label>
+                    <label id="emailName">Email<span class="required">*</span></label>
                 </div>
                 <div class="input-data">
                     <input type="email" id="altEmailInput" name="Alternate Email" required>
                     <div class="underline"></div>
-                    <label id="altEmailName">Alternate Email Id</label>
+                    <label id="altEmailName">Alternate Email Id<span class="required">*</span></label>
                 </div>
             </div>
             <div class="form-row">
                 <div class="input-data">
                     <input type="tel" id="mobileInput" name="Mobile" required>
                     <div class="underline"></div>
-                    <label id="mobile11">Mobile</label>
+                    <label id="mobile11">Mobile<span class="required">*</span></label>
                 </div>
             </div>
             <div class="form-row">
                 <div class="input-data">
                     <input type="text" id="tsaAcc" name="TSA Bank Account No." required>
                     <div class="underline"></div>
-                    <label id="tsaAcc11">TSA Bank Account No (Write you’re a/c no which is given in IITK Account section)</label>
+                    <label id="tsaAcc11">TSA Bank Account No (Write you’re a/c no which is given in IITK Account section)<span class="required">*</span></label>
                 </div>
             </div>
             <div class="form-row">
                 <div class="input-data">
                     <input type="text" id="ifsc" name="IFSC Code">
                     <div class="underline"></div>
-                    <label id="ifsc11">IFSC Code</label>
+                    <label id="ifsc11">IFSC Code<span class="required">*</span></label>
                 </div>
                 <div class="input-data">
                     <input type="text" id="branchName" name="Branch Name">
                     <div class="underline"></div>
-                    <label id="branchName11">Branch Name</label>
+                    <label id="branchName11">Branch Name<span class="required">*</span></label>
                 </div>
             </div>
             <div style="text-align: center;font-size: 17px;font-weight: bold;color: red;">
